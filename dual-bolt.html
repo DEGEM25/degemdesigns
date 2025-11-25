@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dual-Threaded Bolt | Degem Design Studio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+</head>
+<body>
+  <a href="/index.html#nav-anchor" class="home-logo">
+    <img src="DG.png" alt="Degem Design Studio Home" />
+  </a>
+  <article class="deep-dive">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1 class="hero-title">Dual-Threaded Bolt</h1>
+      <p class="hero-subtitle">A precision-engineered bolt featuring two interwoven thread patterns — a complex multi-axis geometry designed to push the limits of parametric CAD modeling and additive manufacturing.</p>
+    </section>
+
+    <!-- 3D Model Section -->
+    <section class="model-section">
+      <div class="model-container">
+        <model-viewer
+          src="BoltNut.glb"
+          alt="Dual-Threaded Bolt"
+          camera-controls
+          auto-rotate
+          rotation-per-second="30deg"
+          interaction-policy="allow-when-focused"
+          style="width: 100%; height: 100%;"
+        ></model-viewer>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="content-section" data-section="problem">
+      <h2 class="section-header">Problem</h2>
+      <div class="section-content">
+        <p>Traditional bolts rely on a single helical thread pattern.</p>
+        <p>Introducing two interlocking thread systems into the same bolt creates major engineering challenges:</p>
+        <ul class="feature-list">
+          <li>Thread interference</li>
+          <li>Conflicting pitch and lead angles</li>
+          <li>Tolerance stacking</li>
+          <li>Manufacturing limitations</li>
+          <li>Non-standard load paths</li>
+        </ul>
+        <p>Conventional subtractive machining cannot produce two blended thread profiles in a single body.</p>
+        <p class="lead">The challenge:</p>
+        <p class="quote">Can you engineer a functional bolt with dual interwoven threads?</p>
+      </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="content-section" data-section="solution">
+      <h2 class="section-header">Solution</h2>
+      <div class="section-content">
+        <p>The Dual-Threaded Bolt is a demonstration of advanced geometric engineering:</p>
+        <ul class="feature-list">
+          <li>Two simultaneous helical thread paths</li>
+          <li>Interwoven geometry using multi-start thread theory</li>
+          <li>Parametric CAD to blend thread boundaries</li>
+          <li>Designed specifically for additive manufacturing where geometry freedom is highest</li>
+        </ul>
+        <p>The bolt and nut pair engage using a blended-thread mechanism, showcasing complex mechanical behavior not possible with traditional tooling.</p>
+        <p class="lead">The solution proves that additive manufacturing unlocks mechanical designs previously considered impossible.</p>
+      </div>
+    </section>
+
+    <!-- Design Section -->
+    <section class="content-section" data-section="design">
+      <h2 class="section-header">Design</h2>
+      <div class="section-content">
+        <h3 class="subsection-header">Key design characteristics</h3>
+        <h4 class="sub-subsection-header">Dual Helical Paths</h4>
+        <p>Two thread profiles cut through one another, sharing volume while maintaining function.</p>
+        <h4 class="sub-subsection-header">Parametric Threading</h4>
+        <p>Pitch, lead, and thread height are controlled mathematically.</p>
+        <h4 class="sub-subsection-header">Multi-Axis Geometry</h4>
+        <p>Each profile spirals with different characteristics, requiring carefully blended surfaces.</p>
+        <h4 class="sub-subsection-header">Tolerance Engineering</h4>
+        <p>Clearances must be tuned precisely for additive manufacturing.</p>
+        <h4 class="sub-subsection-header">Nut Interface</h4>
+        <p>Internal nut threads match the blended profile and must rotate smoothly.</p>
+        <h3 class="subsection-header">Design Goals</h3>
+        <ul class="feature-list">
+          <li>Explore the limits of CAD surfacing</li>
+          <li>Demonstrate multi-start thread engineering</li>
+          <li>Create a functional prototype using additive techniques</li>
+          <li>Study thread interference and load paths</li>
+        </ul>
+        <p>The design reveals new possibilities for mechanical fasteners when freed from traditional machining constraints.</p>
+      </div>
+    </section>
+
+    <!-- Fabrication Section -->
+    <section class="content-section" data-section="fabrication">
+      <h2 class="section-header">Fabrication</h2>
+      <div class="section-content">
+        <h3 class="subsection-header">Intended Manufacturing Method</h3>
+        <p>Additive manufacturing (3D printing) — because subtractive methods cannot cut interwoven thread forms.</p>
+        <h3 class="subsection-header">Print Considerations</h3>
+        <ul class="feature-list">
+          <li><strong>Material:</strong> PLA, ABS, or resin</li>
+          <li><strong>Resolution:</strong> High (0.1–0.15 mm layer height)</li>
+          <li><strong>Orientation:</strong> Threads should be printed horizontally for maximum edge crispness</li>
+          <li><strong>Support:</strong> Minimal internal support</li>
+          <li><strong>Calibration:</strong> Critical for thread engagement</li>
+        </ul>
+        <h3 class="subsection-header">Fabrication Challenges</h3>
+        <ul class="feature-list">
+          <li>Achieving clean, sharp threads</li>
+          <li>Preventing fused surfaces in interwoven regions</li>
+          <li>Ensuring smooth engagement between bolt and nut</li>
+          <li>Maintaining structural integrity despite complex geometry</li>
+        </ul>
+        <p>The printed prototype demonstrates the feasibility of dual-threaded fasteners using modern manufacturing.</p>
+      </div>
+    </section>
+
+    <!-- Iterations Section -->
+    <section class="content-section" data-section="iterations">
+      <h2 class="section-header">Iterations</h2>
+      <div class="section-content">
+        <p>Although fewer iterations were documented compared to the Bottle Insert, the bolt concept required refinement in several areas:</p>
+        <ul class="feature-list">
+          <li>Adjusting thread pitch for smoother rotation</li>
+          <li>Calibrating clearance to prevent binding</li>
+          <li>Redesigning transitions between thread forms</li>
+          <li>Improving overhang performance during printing</li>
+          <li>Enhancing nut engagement tolerances</li>
+        </ul>
+        <p>Each iteration improved function, print quality, and the final mechanical behavior of the bolt.</p>
+      </div>
+    </section>
+
+    <!-- Lessons Section -->
+    <section class="content-section" data-section="lessons">
+      <h2 class="section-header">Lessons</h2>
+      <div class="section-content">
+        <p>Key insights from this project:</p>
+        <ul class="feature-list">
+          <li>Multi-threaded systems require advanced parametric modeling</li>
+          <li>Small changes to pitch, lead angle, or thread height have major mechanical effects</li>
+          <li>Additive manufacturing enables geometric exploration impossible with machining</li>
+          <li>Interwoven threads introduce unique load and wear characteristics</li>
+          <li>Tight tolerances are required for smooth function</li>
+        </ul>
+        <p>This project reinforced the idea that additive manufacturing is not just a prototyping tool — it's a pathway to entirely new mechanical ideas.</p>
+      </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <section class="nav-buttons">
+      <a href="/index.html" class="back-home">← Back to Home</a>
+      <a href="/index.html#products" class="back-products">← Back to Products</a>
+    </section>
+  </article>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+
