@@ -1,0 +1,395 @@
+/* ProjectEmbed Component Styles */
+
+.project-embed-container {
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-embed-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-embed-wrapper {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  border: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Ensure iframe container is never affected by wrapper */
+.project-embed-wrapper > .iframe-container {
+  height: 600px !important;
+  min-height: 600px !important;
+  max-height: 600px !important;
+}
+
+.project-embed-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* macOS-style Browser Chrome - Fixed height for consistency */
+.browser-chrome {
+  background: var(--offwhite);
+  height: 32px !important;
+  min-height: 32px !important;
+  max-height: 32px !important;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 8px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.browser-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease-out;
+}
+
+.browser-dot:hover {
+  opacity: 0.8;
+}
+
+.browser-dot.red {
+  background: #ff5f57;
+}
+
+.browser-dot.yellow {
+  background: #ffbd2e;
+}
+
+.browser-dot.green {
+  background: #27c93f;
+}
+
+.browser-url {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  color: var(--slate-dark);
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 8px;
+}
+
+/* Iframe Container - Fixed size for all - MUST be exactly the same */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  background: var(--offwhite);
+  overflow: hidden;
+  height: 600px !important;
+  min-height: 600px !important;
+  max-height: 600px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  box-sizing: border-box;
+}
+
+.iframe-container iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+  display: block;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* All containers use same size - remove responsive variations - ENFORCE EQUAL HEIGHTS */
+.iframe-container.desktop,
+.iframe-container.tablet,
+.iframe-container.mobile,
+div[class*="iframe-container"],
+.project-embed-wrapper .iframe-container,
+.project-embed-container .iframe-container,
+#project-embeds-container .iframe-container {
+  height: 600px !important;
+  min-height: 600px !important;
+  max-height: 600px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+}
+
+/* Ultra-specific rule to catch any iframe container */
+.projects-embed-grid .project-embed-container .project-embed-wrapper > .iframe-container {
+  height: 600px !important;
+  min-height: 600px !important;
+  max-height: 600px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+}
+
+/* Loading Skeleton */
+.iframe-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--offwhite) 0%,
+    rgba(245, 246, 247, 0.8) 50%,
+    var(--offwhite) 100%
+  );
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.iframe-loading.hidden {
+  display: none;
+}
+
+@keyframes loading-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.iframe-loading-text {
+  color: var(--slate);
+  font-size: 0.9rem;
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Project Info */
+.project-embed-info {
+  padding: 2rem;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.project-embed-title {
+  font-family: "Big Caslon CC", "Big Caslon", "Caslon", serif;
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--black);
+  letter-spacing: 0.02em;
+}
+
+.project-embed-description {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--slate);
+  margin: 0 0 2rem 0;
+}
+
+.project-embed-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--black);
+  text-decoration: none;
+  padding: 0.75rem 0;
+  border-bottom: 1.5px solid var(--black);
+  transition: transform 0.3s ease-out, border-color 0.3s ease-out, color 0.3s ease-out;
+  width: fit-content;
+  letter-spacing: 0.01em;
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.project-embed-link:hover {
+  transform: translateY(-3px);
+  border-color: var(--steel);
+  color: var(--steel);
+}
+
+/* Error State */
+.iframe-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--offwhite);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.iframe-error.hidden {
+  display: none;
+}
+
+.iframe-error-message {
+  color: var(--slate);
+  font-size: 1rem;
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0.5rem 0;
+}
+
+.iframe-error-link {
+  color: var(--steel);
+  text-decoration: none;
+  margin-top: 1rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease-out;
+}
+
+.iframe-error-link:hover {
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .iframe-container,
+  .iframe-container.desktop,
+  .iframe-container.tablet,
+  .iframe-container.mobile {
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
+  }
+
+  .project-embed-info {
+    padding: 1.5rem;
+  }
+
+  .project-embed-description {
+    margin-bottom: 1.5rem;
+  }
+
+  .browser-url {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .iframe-container,
+  .iframe-container.desktop,
+  .iframe-container.tablet,
+  .iframe-container.mobile {
+    height: 450px !important;
+    min-height: 450px !important;
+    max-height: 450px !important;
+  }
+
+  .project-embed-info {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .project-embed-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .project-embed-description {
+    margin-bottom: 1.25rem;
+    font-size: clamp(0.95rem, 3.5vw, 1.05rem);
+  }
+
+  .browser-chrome {
+    height: 28px;
+    padding: 0 8px;
+  }
+
+  .browser-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Multiple Projects Grid */
+.projects-embed-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin: 0 0 6rem 0;
+  max-width: 100%;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Match the websites-grid styling */
+#project-embeds-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+/* Ensure proper spacing within web-design section */
+#web-design #project-embeds-container {
+  margin-bottom: 6rem;
+}
+
+/* Desktop: 2 columns */
+@media (min-width: 1024px) {
+  .projects-embed-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* Large Desktop: 3 columns for 3+ projects */
+@media (min-width: 1400px) {
+  .projects-embed-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 768px) {
+  .projects-embed-grid {
+    gap: 2rem;
+  }
+  
+  .project-embed-container {
+    margin: 0;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .projects-embed-grid {
+    gap: 2rem;
+  }
+}
+
