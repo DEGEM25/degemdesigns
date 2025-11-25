@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="components/project-embed.css">
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -82,6 +83,15 @@
     </div>
   </section>
 
+  <section id="about">
+    <div class="about-content">
+      <h2 class="section-title">About</h2>
+      <div class="about-text">
+        <p>Degem is a multidisciplinary studio where design thinking meets modern engineering. We transform early concepts into polished brands, interfaces, and products through structured iteration. Degem means "prototype," and that's exactly how we work. Our process blends visual design, user experience, and technical insight to bring bold ideas to life with precision.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="web-design">
     <h2 class="section-title">Web Design & Digital Experiences</h2>
     
@@ -104,28 +114,38 @@
       </div>
     </div>
 
-    <div class="websites-grid">
+    <div class="websites-grid" id="websites-grid-static" style="display: none;">
+      <!-- Static cards hidden - replaced by ProjectEmbed components below -->
       <div class="website-card">
-        <img src="quantum-pp-screenshot.png" alt="Quantum Performance Partners homepage" class="website-image" />
+        <div class="website-media">
+          <img src="quantum-pp-screenshot.png" alt="Quantum Performance Partners homepage" class="website-image" />
+        </div>
         <h3>Quantum Performance Partners</h3>
         <p>A modern corporate website for a private equity consulting firm, featuring clean design, strategic content hierarchy, and seamless user experience.</p>
         <a href="https://quantum-pp.com/" target="_blank" rel="noopener noreferrer" class="cta">Explore Project →</a>
       </div>
 
       <div class="website-card">
-        <img src="opensourceopenroad-screenshot.png" alt="Open Source Open Road homepage" class="website-image" />
+        <div class="website-media">
+          <img src="opensourceopenroad-screenshot.png" alt="Open Source Open Road homepage" class="website-image" />
+        </div>
         <h3>Open Source Open Road</h3>
         <p>A thoughtfully designed platform that combines clarity with purpose, showcasing content with intentional design and user-focused navigation.</p>
         <a href="https://opensourceopenroad.com/" target="_blank" rel="noopener noreferrer" class="cta">Explore Project →</a>
       </div>
 
       <div class="website-card">
-        <img src="sammystrear-screenshot.png" alt="SammyStrear homepage" class="website-image" />
+        <div class="website-media">
+          <img src="sammystrear-screenshot.png" alt="SammyStrear homepage" class="website-image" />
+        </div>
         <h3>SammyStrear</h3>
         <p>A personal portfolio and creative showcase built with attention to detail, balancing aesthetic appeal with functional design.</p>
         <a href="https://sammystrear.com/" target="_blank" rel="noopener noreferrer" class="cta">Explore Project →</a>
       </div>
     </div>
+
+    <!-- ProjectEmbed components will be inserted here -->
+    <div id="project-embeds-container"></div>
 
     <div class="methodology-quote">
       <p>Every website I build follows a simple philosophy:</p>
@@ -198,7 +218,64 @@
     </div>
   </section>
 
+  <footer id="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Degem Design Studio</h3>
+        <p>Designed to Iterate. Built to Last.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p><a href="mailto:info@degemdesigns.om">info@degemdesigns.om</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#products">Product Design</a></li>
+          <li><a href="#automations">AI Automations</a></li>
+          <li><a href="#web-design">Web Design</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
   <script src="script.js" defer></script>
+  <script src="components/project-embed.js" defer></script>
+  <script>
+    // Initialize ProjectEmbed components when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      // Wait a bit to ensure ProjectEmbed is loaded
+      setTimeout(function() {
+        // Replace the website cards with embedded projects
+        const projects = [
+          {
+            title: "Quantum Performance Partners",
+            url: "https://quantum-pp.com/",
+            description: "A modern corporate website for a private equity consulting firm, featuring clean design, strategic content hierarchy, and seamless user experience."
+          },
+          {
+            title: "Open Source Open Road",
+            url: "https://opensourceopenroad.com/",
+            description: "A thoughtfully designed platform that combines clarity with purpose, showcasing content with intentional design and user-focused navigation."
+          },
+          {
+            title: "SammyStrear",
+            url: "https://sammystrear.com/",
+            description: "A personal portfolio and creative showcase built with attention to detail, balancing aesthetic appeal with functional design."
+          }
+        ];
+
+        // Find the embed container
+        const embedContainer = document.getElementById('project-embeds-container');
+        if (embedContainer && typeof ProjectEmbed !== 'undefined') {
+          // Create embedded projects
+          ProjectEmbed.createMultiple(projects, embedContainer);
+        } else {
+          console.error('ProjectEmbed not found or container missing');
+        }
+      }, 100);
+    });
+  </script>
 </body>
 </html>
 
