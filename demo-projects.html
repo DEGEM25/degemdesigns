@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Embed Demo | Degem Design Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="components/project-embed.css">
+  <style>
+    body {
+      background: var(--offwhite);
+      padding: 2rem;
+    }
+    .demo-header {
+      max-width: 1400px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+    .demo-header h1 {
+      font-family: "Big Caslon CC", "Big Caslon", "Caslon", serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+    .demo-header p {
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      color: var(--slate);
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-header">
+    <h1>Project Embed Demo</h1>
+    <p>Interactive previews of GitHub Pages projects</p>
+  </div>
+
+  <div id="projects-container"></div>
+
+  <script src="components/project-embed.js"></script>
+  <script>
+    // Example projects - Replace with your actual GitHub Pages URLs
+    const demoProjects = [
+      {
+        title: "Weather App",
+        url: "https://username.github.io/weather-app/",
+        description: "A responsive weather application built with modern web technologies, featuring real-time data and intuitive design."
+      },
+      {
+        title: "Portfolio Template",
+        url: "https://username.github.io/portfolio-template/",
+        description: "A clean, minimalist portfolio template designed for creators and professionals."
+      },
+      {
+        title: "Task Manager",
+        url: "https://username.github.io/task-manager/",
+        description: "An interactive task management application with local storage and drag-and-drop functionality."
+      }
+    ];
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('projects-container');
+      ProjectEmbed.createMultiple(demoProjects, container);
+    });
+  </script>
+</body>
+</html>
+
+
